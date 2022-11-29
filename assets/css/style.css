@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Roboto', serif;
+}
+
+.todo {
+    max-width: 336px;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.header {
+    height: 28px;
+    width: 100%;
+    background-color: #FFDC40;
+}
+
+.column {
+    padding: 17px 22px 18px 28px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 12px;
+    margin-top: 17px;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.todoList {
+    max-width: 286px;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    padding: 10px 30px 10px 27px;
+    display: none;
+}
+
+.todoList div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 286px;
+    height: 40px;
+    /* cursor: move; */
+    /* background-color: red; */
+}
+
+.todoList p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+    max-width: 160px;
+    /* background-color: #833AE0; */
+}
+
+.close-icon {
+    /* background-color: #9953F1; */
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.close-icon svg {
+    z-index: -100;
+}
+
+
+
+
+
+.sort-icon {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 12px;
+    margin-right: 8px;
+}
+
+.up-icon {
+    display: none;
+}
+
+
+.sort-icon svg:hover * {
+    fill: black;
+}
+
+.sort-icon svg {
+    cursor: pointer;
+}
+
+
+.btn {
+    width: 150px;
+    height: 42px;
+    background-color: #833AE0;
+    border-radius: 71px;
+    display: flex;
+    margin: 0 72px 19px 64px;
+    cursor: pointer;
+}
+
+.plus {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    background-color: #9953F1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.btnText p {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.input-task {
+    max-width: 286px;
+    height: 40px;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    padding: 0 30px 0 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.input-task input {
+    max-width: 250px;
+    height: 38px;
+    border: none;
+}
+
+.input-task input:focus {
+    outline: none;
+}
+
+
+
+.close-icon .purple {
+    display: none;
+}
+
+.close-icon:hover .gray-close {
+    display: none;
+}
+
+.close-icon:hover .purple {
+    display: block;
+}
+
+
+.delete-icon {
+    position: relative;
+}
+
+.delete-icon svg {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    cursor: pointer;
+}
+
+.delete-icon .purple {
+    display: none;
+}
+
+.delete-icon:hover .gray-close {
+    display: none;
+}
+
+.delete-icon:hover .purple {
+    display: block;
+}
