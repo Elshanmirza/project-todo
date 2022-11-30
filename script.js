@@ -4,7 +4,8 @@ let list = document.querySelector('.todoList')
 let inputText = document.querySelector('input')
 let inputDiv = document.querySelector('.input-task')
 let deleteIcon = document.querySelector('.delete-icon')
-let sortIcon = document.querySelector('.sort-icon')
+let sortIcon = document.querySelector('.gray-sort-icon')
+let upSort = document.querySelector('.up-icon')
 
 addBtn.addEventListener('click', () => {
     list.style.display = 'block'
@@ -39,13 +40,7 @@ addBtn.addEventListener('click', () => {
     function registerClickHandler(e) {
         let target = e.target;
         target.parentElement.remove()
-        // console.log(list.childElementCount)
-
-        // if(list.childElementCount <5){
-        //     inputDiv.style.display = 'block'
-        //     addBtn.style.display = 'block'
-        //   }
-
+        
         if (list.childElementCount === 0) {
             list.style.display = 'none'
           }
@@ -61,17 +56,25 @@ addBtn.addEventListener('click', () => {
 
 
     sortIcon.addEventListener("click", function () {
-
+        sortIcon.style.display = 'none'
+        upSort.style.display = 'block'
         const tasks = [...document.querySelectorAll('.task')];
-        console.log(tasks)
+
         tasks.sort((a, b) => {
             return parseInt(b.innerText) - parseInt(a.innerText);
         })
-        console.log(tasks)
+
         list.replaceChildren(...list.children, ...tasks)
+    })
+    upSort.addEventListener('click', function(){
+        upSort.style.display = 'none'
+        sortIcon.style.display = 'block'
+        const tasks = [...document.querySelectorAll('.task')];
 
-
-
+        tasks.sort((a, b) => {
+            return parseInt(a.innerText) - parseInt(b.innerText);
+        })
+        list.replaceChildren(...list.children, ...tasks)
     })
 
 
