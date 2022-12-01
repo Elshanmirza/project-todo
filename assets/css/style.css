@@ -46,8 +46,11 @@ h2 {
     align-items: center;
     max-width: 286px;
     height: 40px;
-    /* cursor: move; */
-    /* background-color: red; */
+}
+
+.draggable {
+    cursor: move;
+    user-select: none;
 }
 
 .todoList p {
@@ -56,11 +59,9 @@ h2 {
     line-height: 16px;
     margin: 0;
     max-width: 160px;
-    /* background-color: #833AE0; */
 }
 
 .close-icon {
-    /* background-color: #9953F1; */
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -69,10 +70,6 @@ h2 {
 .close-icon svg {
     z-index: -100;
 }
-
-
-
-
 
 .sort-icon {
     display: flex;
@@ -93,7 +90,6 @@ h2 {
 .sort-icon svg {
     cursor: pointer;
 }
-
 
 .btn {
     width: 150px;
@@ -147,8 +143,6 @@ h2 {
 .input-task input:focus {
     outline: none;
 }
-
-
 
 .close-icon .purple {
     display: none;

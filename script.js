@@ -12,6 +12,8 @@ addBtn.addEventListener('click', () => {
     const newDiv = document.createElement('div')
     list.appendChild(newDiv)
     newDiv.classList.add('task')
+    newDiv.classList.add('draggable')
+    newDiv.draggable = true
     newDiv.innerHTML = `<p>${inputText.value}</p>
     <div class="close-icon">
         <svg class="gray-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -31,28 +33,28 @@ addBtn.addEventListener('click', () => {
 
     inputText.value = ''
 
-    if(list.childElementCount ==5){
+    if (list.childElementCount == 5) {
         inputDiv.style.display = 'none'
         addBtn.style.display = 'none'
-      }
+    }
 
 
     function registerClickHandler(e) {
         let target = e.target;
         target.parentElement.remove()
-        
+
         if (list.childElementCount === 0) {
             list.style.display = 'none'
-          }
+        }
     }
 
     var closeIcon = document.querySelectorAll('.close-icon');
 
     for (var i = 0; i < closeIcon.length; i++) {
-        closeIcon[i].addEventListener("click", registerClickHandler, false);   
+        closeIcon[i].addEventListener("click", registerClickHandler, false);
     }
 
-      
+
 
 
     sortIcon.addEventListener("click", function () {
@@ -66,7 +68,7 @@ addBtn.addEventListener('click', () => {
 
         list.replaceChildren(...list.children, ...tasks)
     })
-    upSort.addEventListener('click', function(){
+    upSort.addEventListener('click', function () {
         upSort.style.display = 'none'
         sortIcon.style.display = 'block'
         const tasks = [...document.querySelectorAll('.task')];
@@ -76,6 +78,48 @@ addBtn.addEventListener('click', () => {
         })
         list.replaceChildren(...list.children, ...tasks)
     })
+
+
+
+
+
+    function enableDragSort(divClass) {
+        const sortableLists = document.getElementsByClassName(divClass);
+        Array.prototype.map.call(sortableLists, (newDiv) => { enableDragList(newDiv) });
+    }
+
+    function enableDragList(newDiv) {
+        Array.prototype.map.call(newDiv.children, (item) => { enableDragItem(item) });
+    }
+
+    function enableDragItem(item) {
+        item.setAttribute('draggable', true)
+        item.ondrag = handleDrag;
+        item.ondragend = handleDrop;
+    }
+
+    function handleDrag(item) {
+        const selectedItem = item.target,
+            newDiv = selectedItem.parentNode,
+            x = event.clientX,
+            y = event.clientY;
+
+        selectedItem.classList.add('drag-sort-active');
+        let swapItem = document.elementFromPoint(x, y) === null ? selectedItem : document.elementFromPoint(x, y);
+
+        if (newDiv === swapItem.parentNode) {
+            swapItem = swapItem !== selectedItem.nextSibling ? swapItem : swapItem.nextSibling;
+            newDiv.insertBefore(selectedItem, swapItem);
+        }
+    }
+
+    function handleDrop(item) {
+        item.target.classList.remove('drag-sort-active');
+    }
+
+    (() => { enableDragSort('drag-sort-enable') })();
+
+
 
 
 
