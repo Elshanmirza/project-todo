@@ -39,6 +39,8 @@ addBtn.addEventListener('click', () => {
     }
 
 
+            // REMOVE FUNCTION
+
     function registerClickHandler(e) {
         let target = e.target;
         target.parentElement.remove()
@@ -55,7 +57,7 @@ addBtn.addEventListener('click', () => {
     }
 
 
-
+        // SORT FUNCTION
 
     sortIcon.addEventListener("click", function () {
         sortIcon.style.display = 'none'
@@ -80,7 +82,7 @@ addBtn.addEventListener('click', () => {
     })
 
 
-
+            // DRAG AND DROP
 
 
     function enableDragSort(divClass) {
@@ -118,12 +120,6 @@ addBtn.addEventListener('click', () => {
     }
 
     (() => { enableDragSort('drag-sort-enable') })();
-
-
-
-
-
-
 })
 
 
