@@ -6,6 +6,7 @@ let inputDiv = document.querySelector('.input-task')
 let deleteIcon = document.querySelector('.delete-icon')
 let sortIcon = document.querySelector('.gray-sort-icon')
 let upSort = document.querySelector('.up-icon')
+let btnText = document.querySelector('.btnText')
 
 addBtn.addEventListener('click', () => {
     list.style.display = 'block'
@@ -48,6 +49,7 @@ addBtn.addEventListener('click', () => {
             list.style.display = 'none'
             inputDiv.style.display = 'block'
             addBtn.style.display = 'block'
+            deleteIcon.style.bottom = '20px'
         }
     }
 
