@@ -12,7 +12,6 @@ addBtn.addEventListener('click', () => {
     const newDiv = document.createElement('div')
     list.appendChild(newDiv)
     newDiv.classList.add('task')
-    newDiv.classList.add('draggable')
     newDiv.draggable = true
     newDiv.innerHTML = `<p>${inputText.value}</p>
     <div class="close-icon">
@@ -47,6 +46,8 @@ addBtn.addEventListener('click', () => {
 
         if (list.childElementCount === 0) {
             list.style.display = 'none'
+            inputDiv.style.display = 'block'
+            addBtn.style.display = 'block'
         }
     }
 
