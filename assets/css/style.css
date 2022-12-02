@@ -112,6 +112,10 @@ h2 {
     color: white;
 }
 
+.btnText{
+    z-index: 999;
+}
+
 .btnText p {
     display: flex;
     align-items: center;
@@ -121,6 +125,7 @@ h2 {
     font-size: 14px;
     line-height: 16px;
 }
+
 
 .input-task {
     max-width: 286px;

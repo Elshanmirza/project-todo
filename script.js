@@ -8,13 +8,16 @@ let sortIcon = document.querySelector('.gray-sort-icon')
 let upSort = document.querySelector('.up-icon')
 let btnText = document.querySelector('.btnText')
 
+
+
+
 addBtn.addEventListener('click', () => {
     list.style.display = 'block'
     const newDiv = document.createElement('div')
     list.appendChild(newDiv)
     newDiv.classList.add('task')
     newDiv.draggable = true
-    newDiv.innerHTML = `<p>${inputText.value}</p>
+    newDiv.innerHTML = `<p contenteditable="true">${inputText.value}</p>
     <div class="close-icon">
         <svg class="gray-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
             viewBox="0 0 20 20" fill="none">
